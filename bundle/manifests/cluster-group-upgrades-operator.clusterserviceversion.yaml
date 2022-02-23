@@ -19,7 +19,7 @@ metadata:
     operators.operatorframework.io/builder: operator-sdk-v1.10.1-ocp
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
   name: cluster-group-upgrades-operator.v0.0.3
-  namespace: placeholder
+  namespace: openshift-operators
 spec:
   apiservicedefinitions: {}
   customresourcedefinitions:
@@ -206,7 +206,7 @@ spec:
                 - --leader-elect
                 command:
                 - /manager
-                image: quay.io/openshift-kni/cluster-group-upgrades-operator:0.0.3
+                image: quay.io/alosadag/cluster-group-upgrades-operator:latest
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -283,6 +283,6 @@ spec:
   provider:
     name: Red Hat
   relatedImages:
-  - image: quay.io/openshift-kni/cluster-group-upgrades-operator-precache:0.0.3
+  - image: quay.io/alosadag/cluster-group-upgrades-operator-precache:latest
     name: pre-caching-workload
   version: 0.0.3
