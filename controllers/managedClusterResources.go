@@ -390,6 +390,9 @@ spec:
               - mountPath: /etc/config
                 name: config-volume
                 readOnly: true
+              - mountPath: /etc/pki/ca-trust/extracted/pem
+                name: pki
+                readOnly: true
             dnsPolicy: ClusterFirst
             restartPolicy: Never
             schedulerName: default-scheduler
@@ -405,6 +408,11 @@ spec:
                 path: /
                 type: Directory
               name: host
+            - hostPath:
+                path: /etc/pki/ca-trust/extracted/pem
+                type: Directory
+              name: pki
+
 
 `
 
